@@ -164,14 +164,13 @@ add_filter( 'frontpage_template',  'wpst_front_page_template' );
 /**
  * Register and enqueue stylesheets
  */
-function wpst_theme_styles() {
+function wpst_scripts() {
 	// Bootstrap CSS
-	wp_register_style( 'bootstrap',
-		'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css',
+	wp_enqueue_style( 'bootstrap',
+		'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css',
 		array(),
-		'4.0.0-beta',
+		'4.0.0-beta2',
 		'all' );
-	wp_enqueue_style( 'bootstrap' );
 
 	// FontAwesome
 	// wp_register_style( 'fontawesome',
@@ -222,8 +221,25 @@ function wpst_theme_styles() {
 	// 	time(),
 	// 	'all' );
 	// wp_enqueue_style( 'wpst-styles' );
+
+	wp_enqueue_script(
+		'popper',
+		'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js',
+		array('jquery'),
+		'1.12.3',
+		true
+	);
+
+	wp_enqueue_script(
+		'bootstrap',
+		'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js',
+		array('jquery', 'popper'),
+		'4.0.0-beta2',
+		true
+	);
 }
-add_action( 'wp_enqueue_scripts', 'wpst_theme_styles' );
+add_action( 'wp_enqueue_scripts', 'wpst_scripts' );
+// TODO: Clean up styles
 
 /**
  * Add link after excerpts.
@@ -236,7 +252,7 @@ add_action( 'wp_enqueue_scripts', 'wpst_theme_styles' );
  * @return string 'Continue reading' link prepended with an ellipsis.
  */
 function wpst_excerpt_more() {
-	$link = sprintf( '<p class="link-more"><a href="%1$s" class="more-link">%2$s &rsaquo;</a></p>',
+	$link = sprintf( '<p class="link-more text-center text-sm-right"><a href="%1$s" class="more-link">%2$s &rsaquo;</a></p>',
 		esc_url( get_permalink( get_the_ID() ) ),
 
 		sprintf( __( 'Continue reading', 'wpst' ), get_the_title( get_the_ID() ) )
