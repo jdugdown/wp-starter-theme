@@ -12,16 +12,20 @@
  */
 get_header(); ?>
 
+<?php while ( have_posts() ) : the_post(); ?>
+
 	<main id="main" role="main">
 
-		<?php while ( have_posts() ) : the_post(); ?>
+		<div class="container">
 
-		<?php the_title('<h1 class="single-title">', '</h1>'); ?>
+			<?php the_title('<h1 class="page-title">', '</h1>'); ?>
 
-		<?php the_content(); ?>
+			<?php the_content(); ?>
 
-		<?php endwhile; ?>
+		</div>
 
 	</main><!-- #main -->
+
+<?php endwhile; ?>
 
 <?php get_footer(); ?>
