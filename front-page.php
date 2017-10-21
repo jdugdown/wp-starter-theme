@@ -18,7 +18,7 @@ get_header(); ?>
 
 		<div class="container">
 
-			<?php the_title('<h1 class="page-title">', '</h1>'); ?>
+			<h1 class="page-title"><?php bloginfo('title'); ?></h1>
 
 			<?php the_content(); ?>
 
