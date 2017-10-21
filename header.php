@@ -20,4 +20,5 @@
 <body <?php body_class(); ?>>
 
 	<header id="masthead" class="site-header" role="banner">
+		<?php get_template_part( 'components/header/navbar' ); ?>
 	</header> <!-- #masthead -->
