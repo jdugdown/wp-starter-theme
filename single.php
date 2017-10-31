@@ -1,9 +1,8 @@
 <?php
 /**
- * The main template file.
+ * The single post template file.
  *
- * This is the most generic template file in a WordPress theme
- * It is used to display a page when nothing more specific matches a query.
+ * This is the template that is used for a single post.
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
