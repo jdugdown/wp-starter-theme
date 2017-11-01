@@ -60,8 +60,8 @@ function wpst_theme_setup() {
 	 * Switch default core markup to output valid HTML5.
 	 */
 	add_theme_support( 'html5', array(
-		'comment-form',
 		'comment-list',
+		'comment-form',
 		'search-form',
 		'gallery',
 		'caption',
@@ -164,7 +164,7 @@ add_filter( 'frontpage_template',  'wpst_front_page_template' );
 /**
  * Register and enqueue stylesheets
  */
-function wpst_scripts() {
+function wpst_styles() {
 	// Bootstrap CSS
 	wp_register_style(
 		'bootstrap-styles',
@@ -223,7 +223,13 @@ function wpst_scripts() {
 	// 	time(),
 	// 	'all' );
 	// wp_enqueue_style( 'wpst-styles' );
+}
+add_action( 'wp_enqueue_scripts', 'wpst_styles' );
 
+/**
+ * Register and enqueue JavaScript
+ */
+function wpst_scripts() {
 	// Popper JS
 	wp_register_script(
 		'popper',
@@ -245,12 +251,11 @@ function wpst_scripts() {
 	wp_enqueue_script( 'bootstrap-js' );
 }
 add_action( 'wp_enqueue_scripts', 'wpst_scripts' );
-// TODO: Clean up styles
 
 /**
  * Add link after excerpts.
  *
- * Replaces "[...]" (appended to automatically generated excerpts) with ... and
+ * Replaces [...] (appended to automatically generated excerpts) with ... and
  * a 'Continue reading' link.
  *
  * @since 1.0.0
@@ -267,5 +272,10 @@ function wpst_excerpt_more() {
 	return '&hellip;' . $link;
 }
 add_filter( 'excerpt_more', 'wpst_excerpt_more' );
+
+/**
+ * Navigation functions.
+ */
+require get_parent_theme_file_path( '/inc/nav-functions.php' );
 
 ?>
