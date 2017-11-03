@@ -1,5 +1,16 @@
 <?php
 /**
+ * Navigation menu includes.
+ *
+ * Contains functions, filters, and actions related to WordPress menus.
+ *
+ * @link https://developer.wordpress.org/themes/basics/theme-functions/
+ *
+ * @package WP Starter Theme
+ * @since 1.0.0
+ */
+
+/**
  * Displays the primary menu.
  */
 function wpst_primary_navigation() {
