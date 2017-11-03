@@ -31,7 +31,6 @@ function wpst_footer_links() {
 	);
 }
 
-// TODO: finish walker, replace bs3 with bs4 stuff
 /**
  * Nav menu walker.
  *
