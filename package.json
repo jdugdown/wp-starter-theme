@@ -1,0 +1,33 @@
+{
+  "name": "wp-starter-theme",
+  "version": "1.0.0",
+  "description": "Starter theme for WP projects with Gulp, Sass, and Bootstrap.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jdugdown/wp-starter-theme.git"
+  },
+  "author": "jdugdown",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/jdugdown/wp-starter-theme/issues"
+  },
+  "homepage": "https://github.com/jdugdown/wp-starter-theme#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-clean-css": "^3.9.0",
+    "gulp-imagemin": "^3.4.0",
+    "gulp-notify": "^3.0.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.1",
+    "gulp-uglify": "^3.0.0",
+    "gulp-util": "^3.0.8",
+    "gulp-watch": "^4.3.11",
+    "vinyl-ftp": "^0.6.0"
+  }
+}
