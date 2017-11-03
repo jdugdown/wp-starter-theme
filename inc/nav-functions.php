@@ -10,7 +10,7 @@ function wpst_primary_navigation() {
 			'theme_location' => 'primary_navigation',
 			'container'      => false,
 			'fallback_cb'    => false,
-			'walker'         => new Bootstrap_walker()
+			'walker'         => new Bootstrap_walker(),
 		)
 	);
 }
@@ -22,9 +22,11 @@ function wpst_footer_links() {
     wp_nav_menu(
 		array(
 			'menu'           => 'footer_links',
-			'menu_class'     => 'footer-links',
+			'menu_class'     => 'nav footer-nav',
 			'theme_location' => 'footer_links',
-			'container'      => 'nav',
+			'container'      => false,
+			'walker'         => new Bootstrap_walker(),
+			'depth'          => 1,
 		)
 	);
 }
