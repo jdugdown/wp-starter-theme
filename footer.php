@@ -13,7 +13,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 text-center text-sm-left">
-					<?php // TODO: footer navigation ?>
+					<?php wpst_footer_links(); ?>
 				</div>
 
 				<div class="col-lg-4 text-center text-sm-right">

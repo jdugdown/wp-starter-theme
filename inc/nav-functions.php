@@ -18,7 +18,7 @@ function wpst_primary_navigation() {
 /**
  * Displays the footer menu.
  */
-function wpst_footer_links($something) {
+function wpst_footer_links() {
     wp_nav_menu(
 		array(
 			'menu'           => 'footer_links',
