@@ -11,6 +11,11 @@
  * @since 1.0.0
  */
 
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Sets up theme defaults and registers support for various features.
  *

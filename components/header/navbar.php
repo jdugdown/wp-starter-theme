@@ -5,6 +5,11 @@
  * @package WP Starter Theme
  * @since 1.0.0
  */
+
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 ?>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">

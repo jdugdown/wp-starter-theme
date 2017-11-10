@@ -10,6 +10,12 @@
  * @package WP Starter Theme
  * @since 1.0.0
  */
+
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 get_header(); ?>
 
 	<main id="index" role="main">

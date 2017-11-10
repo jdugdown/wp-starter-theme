@@ -8,6 +8,11 @@
  * @package WP Starter Theme
  * @since 1.0.0
  */
+
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 ?>
 
 <div class="entry-meta">
