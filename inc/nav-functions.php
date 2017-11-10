@@ -41,6 +41,7 @@ function wpst_footer_links() {
 			'menu_class'     => 'nav footer-nav',
 			'theme_location' => 'footer_links',
 			'container'      => false,
+			'fallback_cb'    => false,
 			'walker'         => new Bootstrap_walker(),
 			'depth'          => 1,
 		)
