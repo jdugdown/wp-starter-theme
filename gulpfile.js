@@ -89,7 +89,17 @@ gulp.task( 'browser-sync', function() {
 	});
 });
 
-// TODO: styles task, default task, install dev dependencies, test
+// TODO: finish styles task, set up default task, revise package.json
+
+/**
+ * Styles task.
+ *
+ * Compiles Sass, adds vendor prefixes, minifies, and merges media queries.
+ */
+gulp.task('styles', function() {
+    gulp.src( styleSrc )
+        .pipe();
+});
 
 /**
  * Scripts task.
@@ -125,4 +135,41 @@ gulp.task( 'images', function() {
 		message: 'Image optimization complete.',
 		onLast: true
 	}));
+});
+
+/**
+ * Deploy Task
+ *
+ * Uploads changed files to a remote server.
+ */
+gulp.task( 'deploy', function () {
+	var conn = ftp.create({
+		host:     gulpftp.config.host,
+		user:     gulpftp.config.user,
+		password: gulpftp.config.pass,
+		parallel: 20,
+		log:      gutil.log,
+	});
+
+	var globs = [
+		'**/*',
+		'*',
+		'!node_modules',
+		'!node_modules/**',
+		'!src/img/raw',
+		'!src/img/raw/**',
+		'!gulpconfig.js',
+		'!.git',
+		'!.git/**',
+		'!.gitignore',
+		'!.sass-cache',
+		'!.sass-cache/**',
+		'!.ftpconfig',
+		'!sftp-config.json',
+		'!ftpsync.settings',
+	];
+
+	gulp.src(globs, { base: '.', buffer: false })
+		.pipe(conn.newer( gulpftp.config.path )) // Only upload newer files.
+		.pipe(conn.dest( gulpftp.config.path ));
 });
