@@ -69,7 +69,6 @@ var filter      = require('gulp-filter'); // Filters stream using a glob of file
 var gutil       = require('gulp-util'); // Utility functions.
 var notify      = require('gulp-notify'); // Desktop notifications.
 var sourcemaps  = require('gulp-sourcemaps'); // Write sourcemaps for our compiled and minified code.
-var watch       = require('gulp-watch'); // Watches files for changes using globs.
 var browserSync = require('browser-sync'); // Injects changes and refreshes the browser.
 var reload      = browserSync.reload; // For manual browser reload.
 var ftp         = require('vinyl-ftp'); // Deploys files to remote server via FTP.
@@ -89,8 +88,6 @@ gulp.task( 'browser-sync', function() {
 	});
 });
 
-// TODO: finish styles task, set up default task, revise package.json
-
 /**
  * Styles task.
  *
@@ -98,7 +95,37 @@ gulp.task( 'browser-sync', function() {
  */
 gulp.task('styles', function() {
     gulp.src( styleSrc )
-        .pipe();
+        .pipe( plumber(function(error) {
+			gutil.log(gutil.colors.red(error.message));
+			notify.onError({
+    		    title: "Compile Error",
+                message: "Sass encountered an error.",
+                sound: false,
+            }).apply(this, arguments);
+			this.emit('end');
+        }))
+        .pipe( sourcemaps.init() )
+        .pipe( sass( {
+            errLogToConsole: true,
+            outputStyle: 'expanded'
+        }))
+        .pipe( sourcemaps.write( { includeContent: false } ) )
+        .pipe( sourcemaps.init( { loadMaps: true } ) )
+        .pipe( autoprefixer( AUTOPREFIXER_BROWSERS ) )
+        .pipe( sourcemaps.write ( styleDest ) )
+        .pipe( gulp.dest( styleDest ) )
+        .pipe( filter( '**/*.css' ) )
+        .pipe( mmq( { log: true } ) )
+        .pipe( browserSync.stream() )
+        .pipe( rename( { suffix: '.min' } ) )
+        .pipe( cleancss() )
+        .pipe( gulp.dest( styleDest ) )
+        .pipe( filter( '**/*.css' ) )
+        .pipe( browserSync.stream() )
+        .pipe( notify( {
+			message: 'Styles task completed.',
+			onLast: true
+		}));
 });
 
 /**
@@ -120,7 +147,7 @@ gulp.task('scripts', function() {
 /**
  * Images task.
  *
- * Optimizes and minifies SVG, PNG, JPEG, and GIF.
+ * Optimizes and minifies SVG, PNG, JPEG, and GIF. Runs manually.
  */
 gulp.task( 'images', function() {
 	gulp.src( imgSrc )
@@ -138,9 +165,9 @@ gulp.task( 'images', function() {
 });
 
 /**
- * Deploy Task
+ * Deploy Task.
  *
- * Uploads changed files to a remote server.
+ * Uploads changed files to a remote server. Runs manually.
  */
 gulp.task( 'deploy', function () {
 	var conn = ftp.create({
@@ -172,4 +199,15 @@ gulp.task( 'deploy', function () {
 	gulp.src(globs, { base: '.', buffer: false })
 		.pipe(conn.newer( gulpftp.config.path )) // Only upload newer files.
 		.pipe(conn.dest( gulpftp.config.path ));
+});
+
+/**
+ * Default task.
+ *
+ * Watches for file changes and runs tasks in a specific order.
+ */
+gulp.task( 'default', ['styles', 'scripts', 'browser-sync'], function () {
+    gulp.watch( phpWatchFiles, reload );
+    gulp.watch( styleWatchFiles, [ 'styles' ] );
+    gulp.watch( jsWatchFiles, [ 'scripts', reload ] );
 });
