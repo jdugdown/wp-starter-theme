@@ -112,7 +112,7 @@ gulp.task('styles', function() {
         .pipe( sourcemaps.write( { includeContent: false } ) )
         .pipe( sourcemaps.init( { loadMaps: true } ) )
         .pipe( prefix( AUTOPREFIXER_BROWSERS ) )
-        .pipe( sourcemaps.write ( styleDest ) )
+        .pipe( sourcemaps.write ( '/maps' ) )
         .pipe( gulp.dest( styleDest ) )
         .pipe( filter( '**/*.css' ) )
         .pipe( mmq( { log: true } ) )
@@ -121,11 +121,7 @@ gulp.task('styles', function() {
         .pipe( cleancss() )
         .pipe( gulp.dest( styleDest ) )
         .pipe( filter( '**/*.css' ) )
-        .pipe( browserSync.stream() )
-        .pipe( notify( {
-			message: 'Styles task completed.',
-			onLast: true
-		}));
+        .pipe( browserSync.stream() );
 });
 
 /**
@@ -137,11 +133,7 @@ gulp.task('scripts', function() {
     gulp.src( jsSrc )
         .pipe( uglify() )
         .pipe( rename( { suffix: '.min' } ) )
-        .pipe( gulp.dest( jsDest ) )
-		.pipe( notify( {
-			message: 'JS minified.',
-			onLast: true
-		}));
+        .pipe( gulp.dest( jsDest ) );
 });
 
 /**
