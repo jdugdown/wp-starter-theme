@@ -1,0 +1,11 @@
+@mixin vertical-gradient($top, $bottom) {
+	background: linear-gradient(to bottom, $top 0%, $bottom 100%);
+}
+
+@mixin horizontal-gradient($left, $right) {
+	background: linear-gradient(to right, $left 0%, $right 100%);
+}
+
+@mixin radial-gradient($inner, $outer) {
+	background: radial-gradient(ellipse at center, $inner 0%, $outer 100%);
+}
