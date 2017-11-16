@@ -72,12 +72,12 @@ function wpst_styles() {
 	// wp_enqueue_style( 'googlefonts' );
 
 	// Theme CSS
-	// wp_register_style( 'wpst-styles',
-	// 	get_stylesheet_directory_uri() . '/css/main.min.css',
-	// 	array(),
-	// 	time(),
-	// 	'all' );
-	// wp_enqueue_style( 'wpst-styles' );
+	wp_register_style( 'wpst-styles',
+		get_stylesheet_directory_uri() . '/assets/css/main.min.css',
+		array(),
+		time(),
+		'all' );
+	wp_enqueue_style( 'wpst-styles' );
 }
 add_action( 'wp_enqueue_scripts', 'wpst_styles' );
 
