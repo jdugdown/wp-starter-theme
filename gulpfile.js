@@ -83,6 +83,7 @@ var ftp         = require('vinyl-ftp'); // Deploys files to remote server via FT
 gulp.task( 'browser-sync', function() {
 	browserSync.init( {
 		proxy: localURL, // The local project URL.
+        https: false,
 		open: true, // Automatically open the project in the browser.
 		injectChanges: true, // Inject CSS changes.
 	});
