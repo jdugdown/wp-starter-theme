@@ -111,7 +111,7 @@ gulp.task('styles', function() {
         }))
         .pipe( sourcemaps.write( { includeContent: false } ) )
         .pipe( sourcemaps.init( { loadMaps: true } ) )
-        .pipe( autoprefixer( AUTOPREFIXER_BROWSERS ) )
+        .pipe( prefix( AUTOPREFIXER_BROWSERS ) )
         .pipe( sourcemaps.write ( styleDest ) )
         .pipe( gulp.dest( styleDest ) )
         .pipe( filter( '**/*.css' ) )
