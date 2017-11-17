@@ -6,6 +6,7 @@
 	## Fonts
 	## Mixins
 ## Header
+## Footer
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
 # Base
@@ -17,6 +18,13 @@
   border-color: transparent;
 }
 
-/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibWFpbi5jc3MiLCJzb3VyY2VzIjpbIm1haW4uc2NzcyIsInBhcnRpYWxzL19iYXNlLnNjc3MiLCJtb2R1bGVzL19jb2xvcnMuc2NzcyIsIm1vZHVsZXMvX2ZvbnRzLnNjc3MiLCJtb2R1bGVzL19taXhpbnMuc2NzcyIsInBhcnRpYWxzL19oZWFkZXIuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7Ozs7Z0VBUWdFO0FBRWhFOztnRUFFZ0U7QUFHaEU7O2dFQUVnRTtBS2pCaEUsQUFDSSxPQURHLENBQ0gsZUFBZSxDQUFDO0VBQ1osWUFBWSxFQUFFLFdBQVc7Q0FDNUIifQ== */
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+.copyright {
+  margin: 1rem 0;
+}
+
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibWFpbi5jc3MiLCJzb3VyY2VzIjpbIm1haW4uc2NzcyIsInBhcnRpYWxzL19iYXNlLnNjc3MiLCJtb2R1bGVzL19jb2xvcnMuc2NzcyIsIm1vZHVsZXMvX2ZvbnRzLnNjc3MiLCJtb2R1bGVzL19taXhpbnMuc2NzcyIsInBhcnRpYWxzL19oZWFkZXIuc2NzcyIsInBhcnRpYWxzL19mb290ZXIuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7Ozs7O2dFQVNnRTtBQUVoRTs7Z0VBRWdFO0FBR2hFOztnRUFFZ0U7QUtsQmhFLEFBQ0ksT0FERyxDQUNILGVBQWUsQ0FBQztFQUNaLFlBQVksRUFBRSxXQUFXO0NBQzVCOztBTGtCTDs7Z0VBRWdFO0FNdkJoRSxBQUFBLFVBQVUsQ0FBQztFQUNWLE1BQU0sRUFBRSxNQUFNO0NBQ2QifQ== */
 
 /*# sourceMappingURL=maps/main.css.map */
