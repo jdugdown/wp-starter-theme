@@ -52,7 +52,6 @@ var gulp        = require('gulp'); // Probably need this one.
 
 // CSS plugins.
 var sass        = require('gulp-sass'); // Sass compilation.
-var mmq         = require('gulp-merge-media-queries'); // Combine matching media queries.
 var prefix      = require('gulp-autoprefixer'); // Automatically prefix styles.
 var cleancss    = require('gulp-clean-css'); // Cleans up and minifies CSS.
 
@@ -83,7 +82,6 @@ var ftp         = require('vinyl-ftp'); // Deploys files to remote server via FT
 gulp.task( 'browser-sync', function() {
 	browserSync.init( {
 		proxy: localURL, // The local project URL.
-        https: false,
 		open: true, // Automatically open the project in the browser.
 		injectChanges: true, // Inject CSS changes.
 	});
@@ -92,9 +90,11 @@ gulp.task( 'browser-sync', function() {
 /**
  * Styles task.
  *
- * Compiles Sass, adds vendor prefixes, minifies, and merges media queries.
+ * Compiles Sass, adds vendor prefixes, and minifies.
  */
 gulp.task('styles', function() {
+    const cssFilter = filter( ['**/*.css'], { restore: true } );
+
     gulp.src( styleSrc )
         .pipe( plumber(function(error) {
 			gutil.log(gutil.colors.red(error.message));
@@ -110,18 +110,15 @@ gulp.task('styles', function() {
             errLogToConsole: true,
             outputStyle: 'expanded'
         }))
-        .pipe( sourcemaps.write( { includeContent: false } ) )
-        .pipe( sourcemaps.init( { loadMaps: true } ) )
         .pipe( prefix( AUTOPREFIXER_BROWSERS ) )
-        .pipe( sourcemaps.write ( '/maps' ) )
         .pipe( gulp.dest( styleDest ) )
-        .pipe( filter( '**/*.css' ) )
-        .pipe( mmq( { log: true } ) )
+        .pipe( cssFilter )
         .pipe( browserSync.stream() )
         .pipe( rename( { suffix: '.min' } ) )
         .pipe( cleancss() )
+        .pipe( sourcemaps.write( './' ) )
         .pipe( gulp.dest( styleDest ) )
-        .pipe( filter( '**/*.css' ) )
+        .pipe( cssFilter )
         .pipe( browserSync.stream() );
 });
 
