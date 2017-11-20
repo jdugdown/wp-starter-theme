@@ -79,7 +79,7 @@ var ftp         = require('vinyl-ftp'); // Deploys files to remote server via FT
  *
  * @link https://browsersync.io/docs/options/
  */
-gulp.task( 'browser-sync', function() {
+gulp.task( 'browser-sync', () => {
 	browserSync.init( {
 		proxy: localURL, // The local project URL.
 		open: true, // Automatically open the project in the browser.
@@ -92,11 +92,11 @@ gulp.task( 'browser-sync', function() {
  *
  * Compiles Sass, adds vendor prefixes, and minifies.
  */
-gulp.task('styles', function() {
+gulp.task('styles', () => {
     const cssFilter = filter( ['**/*.css'], { restore: true } );
 
     gulp.src( styleSrc )
-        .pipe( plumber(function(error) {
+        .pipe( plumber( (error) => {
 			gutil.log(gutil.colors.red(error.message));
 			notify.onError({
     		    title: "Compile Error",
@@ -127,7 +127,7 @@ gulp.task('styles', function() {
  *
  * Minifies JavaScript and adds a .min suffix to the filename.
  */
-gulp.task('scripts', function() {
+gulp.task('scripts', () => {
     gulp.src( jsSrc )
         .pipe( uglify() )
         .pipe( rename( { suffix: '.min' } ) )
@@ -139,7 +139,7 @@ gulp.task('scripts', function() {
  *
  * Optimizes and minifies SVG, PNG, JPEG, and GIF. Runs manually.
  */
-gulp.task( 'images', function() {
+gulp.task( 'images', () => {
 	gulp.src( imgSrc )
 	.pipe( imagemin( {
 		progressive: true,
@@ -159,7 +159,7 @@ gulp.task( 'images', function() {
  *
  * Uploads changed files to a remote server. Runs manually.
  */
-gulp.task( 'deploy', function () {
+gulp.task( 'deploy', () => {
 	var conn = ftp.create({
 		host:     gulpftp.config.host,
 		user:     gulpftp.config.user,
@@ -196,7 +196,7 @@ gulp.task( 'deploy', function () {
  *
  * Watches for file changes and runs tasks in a specific order.
  */
-gulp.task( 'default', ['styles', 'scripts', 'browser-sync'], function () {
+gulp.task( 'default', ['styles', 'scripts', 'browser-sync'], () => {
     gulp.watch( phpWatchFiles, reload );
     gulp.watch( styleWatchFiles, [ 'styles' ] );
     gulp.watch( jsWatchFiles, [ 'scripts', reload ] );
