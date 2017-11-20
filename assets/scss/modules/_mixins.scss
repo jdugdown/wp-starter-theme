@@ -1,3 +1,19 @@
+@mixin link-colors($link, $hover, $focus, $active) {
+	color: $link;
+
+	&:hover {
+		color: $hover;
+	}
+
+	&:focus {
+		color: $focus;
+	}
+
+	&:active {
+		color: $active;
+	}
+}
+
 @mixin vertical-gradient($top, $bottom) {
 	background: linear-gradient(to bottom, $top 0%, $bottom 100%);
 }
@@ -8,4 +24,44 @@
 
 @mixin radial-gradient($inner, $outer) {
 	background: radial-gradient(ellipse at center, $inner 0%, $outer 100%);
+}
+
+@mixin media-query($breakpoint) {
+	@if $breakpoint == 'min-sm' {
+		@media (min-width: 576px) {
+			@content;
+		}
+	} @else if $breakpoint == 'min-md' {
+		@media (min-width: 768px) {
+			@content;
+		}
+	} @else if $breakpoint == 'min-lg' {
+		@media (min-width: 992px) {
+			@content;
+		}
+	} @else if $breakpoint == 'min-xl' {
+		@media (min-width: 1200px) {
+			@content;
+		}
+	} @else if $breakpoint == 'max-sm' {
+		@media (max-width: 575px) {
+			@content;
+		}
+	} @else if $breakpoint == 'max-md' {
+		@media (max-width: 767px) {
+			@content;
+		}
+	} @else if $breakpoint == 'max-lg' {
+		@media (max-width: 991px) {
+			@content;
+		}
+	} @else if $breakpoint == 'max-xl' {
+		@media (max-width: 1199px) {
+			@content;
+		}
+	} @else {
+		@media ($breakpoint) {
+			@content;
+		}
+	}
 }
