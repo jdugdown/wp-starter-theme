@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<?php the_excerpt(); ?>
 		<?php else: ?>
 			<?php the_excerpt(); ?>
-			<div class="link-more text-right"><a href="<?php esc_url( get_permalink() ); ?>" class="btn btn-link"><?php _e('Continue reading', 'jwdmc'); ?> &rsaquo;</a></div>
+			<div class="link-more text-right"><a href="<?php esc_url( get_permalink() ); ?>" class="btn btn-link"><?php _e('Continue reading', 'wpst'); ?> &rsaquo;</a></div>
 		<?php endif; ?>
 	</section>
 
