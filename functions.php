@@ -177,7 +177,7 @@ add_action( 'wp_head', 'wpst_pingback_header' );
  * @return string 'Continue reading' link prepended with an ellipsis.
  */
 function wpst_excerpt_more() {
-	$link = sprintf( '<p class="link-more text-center text-sm-right"><a href="%1$s" class="more-link">%2$s &rsaquo;</a></p>',
+	$link = sprintf( '<div class="link-more text-right"><a href="%1$s" class="btn btn-link">%2$s &rsaquo;</a></div>',
 		esc_url( get_permalink( get_the_ID() ) ),
 
 		sprintf( __( 'Continue reading', 'wpst' ), get_the_title( get_the_ID() ) )
