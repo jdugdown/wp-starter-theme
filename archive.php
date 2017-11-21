@@ -26,7 +26,7 @@ get_header(); ?>
 			<?php if ( have_posts() ) : ?>
 				<?php while ( have_posts() ) : the_post(); ?>
 
-					<?php get_template_part( 'components/post/single' ); ?>
+					<?php get_template_part( 'components/post/single', 'excerpt' ); ?>
 
 				<?php endwhile; ?>
 
