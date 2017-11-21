@@ -19,6 +19,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header(); ?>
 
 	<main id="index" role="main">
+		<div class="jumbotron jumbotron-fluid">
+			<div class="container">
+				<?php if ( is_home() && is_front_page() ) : ?>
+					<h1 class="page-title display-4"><?php bloginfo('title'); ?></h1>
+				<?php elseif ( is_home() ) : ?>
+					<h1 class="page-title display-4"><?php _e('Blog', 'wpst'); ?></h1>
+				<?php else: ?>
+					<h1 class="page-title display-4"><?php bloginfo('title'); ?></h1>
+				<?php endif; ?>
+			</div>
+		</div>
+
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 col-xl-9">
@@ -34,7 +46,7 @@ get_header(); ?>
 
 					<?php else : ?>
 
-						<h1 class="single-title"><?php _e('No posts yet', 'wpst'); ?></h1>
+						<h2 class="single-title"><?php _e('No posts yet', 'wpst'); ?></h2>
 
 					<?php endif; ?>
 
