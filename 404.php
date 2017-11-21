@@ -23,7 +23,7 @@ get_header(); ?>
 
 			<h1 class="page-title"><?php _e('Error 404', 'wpst'); ?></h1>
 
-            <h3><?php _e('The requested page or resource was not found', 'jwdmc'); ?></h3>
+            <h3><?php _e('The requested page or resource was not found', 'wpst'); ?></h3>
 
 		</div>
 

@@ -106,11 +106,12 @@ function wpst_scripts() {
 	);
 	wp_enqueue_script( 'bootstrap-js' );
 
-	wp_register_script( 'jwdmc-scripts',
+	wp_register_script(
+		'wpst-scripts',
 		get_stylesheet_directory_uri() . '/assets/js/main.min.js',
 		array('jquery'),
 		'1.0.0-' . time(),
 		true );
-	wp_enqueue_script('jwdmc-scripts');
+	wp_enqueue_script('wpst-scripts');
 }
 add_action( 'wp_enqueue_scripts', 'wpst_scripts' );
