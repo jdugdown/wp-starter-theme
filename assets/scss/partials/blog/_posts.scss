@@ -1,0 +1,41 @@
+article {
+    margin-bottom: 2rem;
+
+    &.card {
+        .entry-header {
+            padding-bottom: 0;
+        }
+
+        .entry-content {
+            padding-top: 0;
+        }
+
+        .link-more {
+            margin-right: -.75rem;
+        }
+    }
+}
+
+.entry-meta {
+    margin-bottom: .5rem;
+
+    p {
+        margin-bottom: .5rem;
+    }
+
+    .badge {
+        margin: 0 .5rem .5rem 0;
+    }
+}
+
+.single-post {
+    .entry-header {
+        .aligncenter {
+            width: 100%;
+        }
+    }
+
+    .entry-footer {
+        margin: 2rem 0;
+    }
+}

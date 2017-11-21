@@ -1,3 +1,35 @@
 @import '../modules/colors';
 @import '../modules/fonts';
 @import '../modules/mixins';
+
+img {
+    max-width: 100%;
+    height: auto;
+
+    &.aligncenter {
+        display: block;
+        margin: 0 auto 1rem;
+    }
+
+    &.alignright {
+        display: block;
+        margin: 0 auto 1rem;
+        height: auto;
+
+        @include media-query(min-md) {
+            float: right;
+            margin: 0 0 1rem 1rem;
+        }
+    }
+
+    &.alignleft {
+        display: block;
+        margin: 0 auto 1rem;
+        height: auto;
+
+        @include media-query(min-md) {
+            float: left;
+            margin: 0 1rem 1rem 0;
+        }
+    }
+}

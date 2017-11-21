@@ -22,6 +22,42 @@
 /*--------------------------------------------------------------
 # Base
 --------------------------------------------------------------*/
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+img.aligncenter {
+  display: block;
+  margin: 0 auto 1rem;
+}
+
+img.alignright {
+  display: block;
+  margin: 0 auto 1rem;
+  height: auto;
+}
+
+@media (min-width: 768px) {
+  img.alignright {
+    float: right;
+    margin: 0 0 1rem 1rem;
+  }
+}
+
+img.alignleft {
+  display: block;
+  margin: 0 auto 1rem;
+  height: auto;
+}
+
+@media (min-width: 768px) {
+  img.alignleft {
+    float: left;
+    margin: 0 1rem 1rem 0;
+  }
+}
+
 /*--------------------------------------------------------------
 # Typography
 --------------------------------------------------------------*/
@@ -51,6 +87,42 @@
 /*--------------------------------------------------------------
 # Blog
 --------------------------------------------------------------*/
+article {
+  margin-bottom: 2rem;
+}
+
+article.card .entry-header {
+  padding-bottom: 0;
+}
+
+article.card .entry-content {
+  padding-top: 0;
+}
+
+article.card .link-more {
+  margin-right: -.75rem;
+}
+
+.entry-meta {
+  margin-bottom: .5rem;
+}
+
+.entry-meta p {
+  margin-bottom: .5rem;
+}
+
+.entry-meta .badge {
+  margin: 0 .5rem .5rem 0;
+}
+
+.single-post .entry-header .aligncenter {
+  width: 100%;
+}
+
+.single-post .entry-footer {
+  margin: 2rem 0;
+}
+
 /*--------------------------------------------------------------
 # Print
 --------------------------------------------------------------*/
