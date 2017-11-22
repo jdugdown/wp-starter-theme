@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header(); ?>
 
-	<main id="archive" role="main">
+	<div id="archive">
 		<div class="jumbotron jumbotron-fluid">
 			<div class="container">
 				<?php
@@ -27,7 +27,7 @@ get_header(); ?>
 
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-8 col-xl-9">
+				<div class="col-lg-8 col-xl-9" role="main">
 
 					<?php if ( have_posts() ) : ?>
 						<?php while ( have_posts() ) : the_post(); ?>
@@ -50,6 +50,6 @@ get_header(); ?>
 
 			</div>
 		</div>
-	</main> <!-- main -->
+	</div>
 
 <?php get_footer(); ?>
