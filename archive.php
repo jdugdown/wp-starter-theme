@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header(); ?>
 
-	<main id="index" role="main">
+	<main id="archive" role="main">
 		<div class="jumbotron jumbotron-fluid">
 			<div class="container">
 				<?php

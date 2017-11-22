@@ -20,7 +20,7 @@ get_header(); ?>
 
 <?php while ( have_posts() ) : the_post(); ?>
 
-	<main id="main" role="main">
+	<main id="page-default" role="main">
 
 		<div class="container">
 

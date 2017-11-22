@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header(); ?>
 
-	<main id="index" role="main">
+	<main id="single" role="main">
 		<div class="container">
 
 			<?php if ( have_posts() ) : ?>
