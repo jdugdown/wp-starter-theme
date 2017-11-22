@@ -92,8 +92,8 @@ function wpst_register_sidebars() {
 		'description'   => 'The default sidebar.',
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</div>',
-		'before_title'  => '<h4 class="widgettitle">',
-		'after_title'   => '</h4>',
+		'before_title'  => '<h5 class="widgettitle">',
+		'after_title'   => '</h5>',
 		));
 }
 add_action( 'widgets_init', 'wpst_register_sidebars' );
