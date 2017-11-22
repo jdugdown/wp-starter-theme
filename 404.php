@@ -19,12 +19,14 @@ get_header(); ?>
 
 	<main id="error404" role="main">
 
-		<div class="container text-center">
+		<div class="jumbotron jumbotron-fluid">
+			<div class="container">
+				<h1 class="page-title display-4"><?php _e('Error 404', 'wpst'); ?></h1>
+			</div>
+		</div>
 
-			<h1 class="page-title"><?php _e('Error 404', 'wpst'); ?></h1>
-
-            <h3><?php _e('The requested page or resource was not found', 'wpst'); ?></h3>
-
+		<div class="container">
+            <h4><?php _e('The requested page or resource was not found', 'wpst'); ?></h4>
 		</div>
 
 	</main><!-- #main -->

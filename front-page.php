@@ -22,12 +22,14 @@ get_header(); ?>
 
 	<main id="front-page" role="main">
 
+		<div class="jumbotron jumbotron-fluid">
+			<div class="container">
+				<h1 class="page-title"><?php bloginfo('title display-4'); ?></h1>
+			</div>
+		</div>
+
 		<div class="container">
-
-			<h1 class="page-title"><?php bloginfo('title'); ?></h1>
-
 			<?php the_content(); ?>
-
 		</div>
 
 	</main><!-- #main -->
