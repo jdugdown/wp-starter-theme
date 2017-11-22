@@ -20,18 +20,17 @@ get_header(); ?>
 	<main id="single" role="main">
 		<div class="container">
 
-			<?php if ( have_posts() ) : ?>
-				<?php while ( have_posts() ) : the_post(); ?>
+			<?php
+				while ( have_posts() ) : the_post();
 
-					<?php get_template_part( 'components/post/single' ); ?>
+					get_template_part( 'components/post/single' );
 
-				<?php endwhile; ?>
+					if ( comments_open() || get_comments_number() ) :
+						comments_template();
+					endif;
 
-			<?php else : ?>
-
-				<h1 class="single-title"><?php _e('No posts yet', 'wpst'); ?></h1>
-
-			<?php endif; ?>
+				endwhile;
+			?>
 
 		</div>
 	</main> <!-- main -->
