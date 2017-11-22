@@ -17,6 +17,7 @@
 	## Index
 	## Archives
 	## Posts
+    ## Widgets
 # Print
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
@@ -121,6 +122,19 @@ article.card .link-more {
 
 .single-post .entry-footer {
   margin: 2rem 0;
+}
+
+.widget {
+  margin-bottom: 2rem;
+}
+
+.widget ul {
+  list-style: none;
+  padding: 0 0 0 1rem;
+}
+
+.widget li + li {
+  margin-top: .25rem;
 }
 
 /*--------------------------------------------------------------

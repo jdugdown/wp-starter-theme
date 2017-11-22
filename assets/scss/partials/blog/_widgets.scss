@@ -1,0 +1,14 @@
+.widget {
+    margin-bottom: 2rem;
+
+    ul {
+        list-style: none;
+        padding: 0 0 0 1rem;
+    }
+
+    li {
+        + li {
+            margin-top: .25rem;
+        }
+    }
+}
