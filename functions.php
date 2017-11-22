@@ -83,6 +83,22 @@ function wpst_theme_setup() {
 add_action( 'after_setup_theme', 'wpst_theme_setup' );
 
 /**
+ * Register theme sidebars.
+ */
+function wpst_register_sidebars() {
+	register_sidebar(array(
+		'id'            => 'sidebar1',
+		'name'          => 'Main Sidebar',
+		'description'   => 'The default sidebar.',
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h4 class="widgettitle">',
+		'after_title'   => '</h4>',
+		));
+}
+add_action( 'widgets_init', 'wpst_register_sidebars' );
+
+/**
  * Set the content width in pixels.
  *
  * Priority set to 0 to make it available to lower priority callbacks.
