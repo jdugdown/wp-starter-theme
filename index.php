@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header(); ?>
 
-	<main id="index" role="main">
+	<div id="index">
 		<div class="jumbotron jumbotron-fluid">
 			<div class="container">
 				<?php if ( is_home() && is_front_page() ) : ?>
@@ -33,7 +33,7 @@ get_header(); ?>
 
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-8 col-xl-9">
+				<main class="col-lg-8 col-xl-9" role="main">
 
 					<?php if ( have_posts() ) : ?>
 						<?php while ( have_posts() ) : the_post(); ?>
@@ -50,12 +50,12 @@ get_header(); ?>
 
 					<?php endif; ?>
 
-				</div>
+				</main>
 
-				<?php get_sidebar(); ?>
+				<?php get_sidebar('sidebar1'); ?>
 
 			</div>
 		</div>
-	</main> <!-- main -->
+	</div>
 
 <?php get_footer(); ?>
