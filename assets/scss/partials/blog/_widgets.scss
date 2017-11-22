@@ -7,8 +7,10 @@
     }
 
     li {
+        line-height: 1.2;
+
         + li {
-            margin-top: .25rem;
+            margin-top: .375rem;
         }
     }
 }

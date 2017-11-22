@@ -133,8 +133,12 @@ article.card .link-more {
   padding: 0 0 0 1rem;
 }
 
+.widget li {
+  line-height: 1.2;
+}
+
 .widget li + li {
-  margin-top: .25rem;
+  margin-top: .375rem;
 }
 
 /*--------------------------------------------------------------
