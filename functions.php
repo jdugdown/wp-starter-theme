@@ -51,7 +51,7 @@ function wpst_theme_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 	add_image_size( 'wpst-gallery-thumbnail', 250, 250, true );
-	// TODO: add relevant image sizes
+	add_image_size( 'wpst-post-featured', 850, 350, true );
 
 	/**
 	 * Register header and footer navigation menus.
