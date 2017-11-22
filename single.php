@@ -27,8 +27,6 @@ get_header(); ?>
 
 				<?php endwhile; ?>
 
-				<?php // TODO: add pagination func here ?>
-
 			<?php else : ?>
 
 				<h1 class="single-title"><?php _e('No posts yet', 'wpst'); ?></h1>
