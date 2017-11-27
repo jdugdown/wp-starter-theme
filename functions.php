@@ -213,4 +213,9 @@ require get_parent_theme_file_path( '/inc/enqueue-functions.php' );
  */
 require get_parent_theme_file_path( '/inc/nav-functions.php' );
 
+/**
+ * Pagination functions.
+ */
+require get_parent_theme_file_path( '/inc/pagination-functions.php' );
+
 ?>
