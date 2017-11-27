@@ -36,13 +36,14 @@ get_header(); ?>
 				<main class="col-lg-8 col-xl-9" role="main">
 
 					<?php if ( have_posts() ) : ?>
+
 						<?php while ( have_posts() ) : the_post(); ?>
 
 							<?php get_template_part( 'components/post/single', 'excerpt' ); ?>
 
 						<?php endwhile; ?>
 
-						<?php // TODO: add pagination func here ?>
+						<?php wpst_pagination(); ?>
 
 					<?php else : ?>
 

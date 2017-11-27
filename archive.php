@@ -36,7 +36,7 @@ get_header(); ?>
 
 						<?php endwhile; ?>
 
-						<?php // TODO: add pagination func here ?>
+						<?php wpst_pagination(); ?>
 
 					<?php else : ?>
 
