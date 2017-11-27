@@ -17,6 +17,7 @@
 
 // Project variables and paths.
 var localURL        = 'wp-starter-theme.dev'; // Local site URL.
+var devIP           = '10.0.0.180'; // Local development IP.
 
 // CSS.
 var styleSrc        = './assets/scss/main.scss'; // The main Sass file.
@@ -84,6 +85,7 @@ gulp.task( 'browser-sync', () => {
 		proxy: localURL, // The local project URL.
 		open: true, // Automatically open the project in the browser.
 		injectChanges: true, // Inject CSS changes.
+        host: devIP, // Local development IP.
 	});
 });
 
