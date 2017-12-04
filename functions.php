@@ -258,6 +258,13 @@ function wpst_form_previous_button( $button, $form ) {
 add_filter( 'gform_previous_button', 'wpst_form_previous_button', 10, 5 );
 
 /**
+ * Set up theme options page via ACF Pro.
+ */
+if ( function_exists('acf_add_options_page') ) {
+	acf_add_options_page();
+}
+
+/**
  * Enqueue functions.
  */
 require get_parent_theme_file_path( '/inc/enqueue-functions.php' );
