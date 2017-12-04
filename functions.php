@@ -221,6 +221,43 @@ function wpst_yoasttobottom() {
 add_filter( 'wpseo_metabox_prio', 'wpst_yoasttobottom');
 
 /**
+ * Customize Gravity Forms buttons.
+ *
+ * Change out the default Gravity Forms submit, next, and previous buttons to
+ * match the theme.
+ *
+ * @param string $button Current string of button code.
+ * @param string $form The form the button is tied to.
+ * @return string The filtered button.
+ */
+function wpst_form_submit_button( $button, $form ) {
+	$button = str_replace( 'input', 'button', $button );
+	$button = str_replace( '/', '', $button );
+	$button = str_replace( 'gform_button button', 'btn btn-primary', $button );
+	$button .= "{$form['button']['text']}</button>";
+	return $button;
+}
+add_filter( 'gform_submit_button', 'wpst_form_submit_button', 10, 5 );
+
+function wpst_form_next_button( $button, $form ) {
+	$button = str_replace( 'input', 'button', $button );
+	$button = str_replace( '/', '', $button );
+	$button = str_replace( 'gform_next_button button', 'btn btn-default', $button );
+	$button .= 'Next</button>';
+	return $button;
+}
+add_filter( 'gform_next_button', 'wpst_form_next_button', 10, 5 );
+
+function wpst_form_previous_button( $button, $form ) {
+	$button = str_replace( 'input', 'button', $button );
+	$button = str_replace( '/', '', $button );
+	$button = str_replace( 'gform_previous_button button', 'btn btn-default', $button );
+	$button .= 'Previous</button>';
+	return $button;
+}
+add_filter( 'gform_previous_button', 'wpst_form_previous_button', 10, 5 );
+
+/**
  * Enqueue functions.
  */
 require get_parent_theme_file_path( '/inc/enqueue-functions.php' );
