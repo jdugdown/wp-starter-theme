@@ -144,14 +144,19 @@ function wpst_head_cleanup() {
 add_action('init', 'wpst_head_cleanup');
 
 /**
- * Disable XMLRPC
+ * Disable XMLRPC.
  */
 add_filter('xmlrpc_enabled', '__return_false');
 
 /**
- * Disable WordPress theme and plugin editor
+ * Disable WordPress theme and plugin editor.
  */
 define( 'DISALLOW_FILE_EDIT', true );
+
+/**
+ * Custom editor stylesheet.
+ */
+add_editor_style('assets/css/editor.css');
 
 /**
  * Use front-page.php when a static page is set to display as the front page.

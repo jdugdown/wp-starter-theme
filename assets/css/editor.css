@@ -1,0 +1,21 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+hr {
+    margin: 40px 0;
+}
+
+blockquote {
+    padding: .25em 1em;
+    margin: 1em 2em;
+    border-left: 3px solid lightgrey;
+}
