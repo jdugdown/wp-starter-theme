@@ -209,6 +209,18 @@ function wpst_excerpt_more() {
 add_filter( 'excerpt_more', 'wpst_excerpt_more' );
 
 /**
+ * Set Yoast SEO metabox priority.
+ *
+ * Push the Yoast metabox down below the content and custom fields.
+ *
+ * @return string The assigned priority.
+ */
+function wpst_yoasttobottom() {
+	return 'low';
+}
+add_filter( 'wpseo_metabox_prio', 'wpst_yoasttobottom');
+
+/**
  * Enqueue functions.
  */
 require get_parent_theme_file_path( '/inc/enqueue-functions.php' );
