@@ -98,20 +98,12 @@ gulp.task('styles', () => {
     const cssFilter = filter( ['**/*.css'], { restore: true } );
 
     gulp.src( styleSrc )
-        .pipe( plumber( (error) => {
-			gutil.log(gutil.colors.red(error.message));
-			notify.onError({
-    		    title: "Compile Error",
-                message: "Sass encountered an error.",
-                sound: false,
-            }).apply(this, arguments);
-			this.emit('end');
-        }))
         .pipe( sourcemaps.init() )
         .pipe( sass( {
             errLogToConsole: true,
             outputStyle: 'expanded'
         }))
+        .on('error', console.error.bind(console))
         .pipe( prefix( AUTOPREFIXER_BROWSERS ) )
         .pipe( gulp.dest( styleDest ) )
         .pipe( cssFilter )
